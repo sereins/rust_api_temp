@@ -3,11 +3,24 @@ use serde::{Deserialize, Serialize};
 // 服务的配置
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ServerConfig {
-    ip: Vec<u8>,
+    host: String,
     port: usize,
 }
 
+impl ServerConfig {
+    /// 获取stock地址
+    pub fn service_format(&self) -> String {
+        format!("{}:{}", self.host, self.port)
+    }
+    // 返回服务地址
+    pub fn http_addr(&self) -> String {
+        format!("http://{}:{}/", self.host, self.port)
+    }
+}
+
+
 #[derive(Debug, Serialize, Deserialize)]
+// 应用配置
 pub struct ApplicationConfig {
     // 调试模式
     pub debug: bool,
