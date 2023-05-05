@@ -1,6 +1,6 @@
 use sqlx::{Error, MySql, Pool, QueryBuilder};
 use sqlx::mysql::MySqlQueryResult;
-use sqlx::types::chrono::{Local, NaiveDateTime};
+use sqlx::types::chrono::{Local};
 use crate::apps::admin::entities::Admin;
 
 pub async fn admin(pool: &Pool<MySql>) -> Vec<Admin> {
