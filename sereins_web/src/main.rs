@@ -9,10 +9,9 @@ use sereis_web::initialize::config::{ApplicationConfig};
 
 #[tokio::main]
 async fn main() {
+
     let pool = MySqlPoolOptions::new()
-        .connect("mysql://root:jia111111@localhost:3306/house")
-        .await
-        .unwrap();
+        .connect("mysql://root:jia111111@localhost:3306/house");
 
     let mut sql = format!("insert into rent_device (sn,mac,val,state,type,house_id,time_put) values");
     let time = Local::now().naive_local().to_string();
