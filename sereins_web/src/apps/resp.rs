@@ -1,7 +1,6 @@
+use serde::{Serialize,de::DeserializeOwned,Deserialize};
 use axum::body::Body;
 use axum::response::Response;
-use serde::de::DeserializeOwned;
-use serde::Serialize;
 
 /// 响应的封装
 
@@ -81,7 +80,7 @@ impl<'a, T> RespVo<'a, T>
     }
 
     /// 失败返回
-    pub fn fail(data: &T) -> Self {
+    pub fn fail(data: T) -> Self {
         Self {
             code: CODE_FAIL,
             msg: "",
@@ -90,7 +89,7 @@ impl<'a, T> RespVo<'a, T>
         }
     }
 
-    pub fn waring_with_code(code: i16, msg: &'a str, data: &T) -> Self {
+    pub fn waring_with_code(code: i16, msg: &'a str, data: T) -> Self {
         Self {
             code,
             msg,
