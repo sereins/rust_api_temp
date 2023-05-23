@@ -1,7 +1,7 @@
 use axum::{Router, Server};
 use sereis_web::apps::admin::controller::routers;
-use sereis_web::{APPLICATION_CONTEXT, init_context};
-use sereis_web::initialize::config::{ApplicationConfig};
+use sereis_web::config::ApplicationConfig;
+use sereis_web::initialize::{APPLICATION_CONTEXT, init_context};
 
 #[tokio::main]
 async fn main() {

@@ -1,9 +1,9 @@
 use axum::{Router, routing};
 use axum::response::IntoResponse;
 use sqlx::mysql::MySqlPoolOptions;
-use crate::APPLICATION_CONTEXT;
 use crate::apps::admin::domain::{adds, admin};
-use crate::initialize::config::ApplicationConfig;
+use crate::config::ApplicationConfig;
+use crate::initialize::APPLICATION_CONTEXT;
 
 /// 用户登录
 pub async fn login() -> impl IntoResponse {
